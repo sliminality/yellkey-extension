@@ -4,6 +4,8 @@ Adds a button to the Firefox toolbar to quickly generate a [ShoutKey](http://sho
 
 Working on Firefox 57 and newer. This extension is not affiliated with ShoutKey.
 
+Download and install from [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/shoutkey/).
+
 ![Screenshot of a the extension icon in the toolbar, with a pop-up containing a shortened URL](./screenshot.png)
 
 ## See also
