@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "YellKey",
-  "version": "1.1",
+  "version": "1.1.0",
   "description": "Generate short-lived, human-readable URLs in one click. Official Firefox extension for YellKey.",
   "homepage_url": "https://github.com/sarahlim/yellkey-firefox/",
   "icons": {
