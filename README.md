@@ -4,7 +4,7 @@ Adds a button to the Firefox toolbar to quickly generate a [YellKey](http://yell
 
 Working on Firefox 57 and newer.
 
-YellKey is inspired by ShoutKey, which was closed down around January 2017.
+YellKey is inspired by ShoutKey, which was closed down around January 2018.
 
 Download and install from [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/shoutkey/).
 
