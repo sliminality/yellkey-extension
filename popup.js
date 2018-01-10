@@ -11,25 +11,19 @@ async function getCurrentURL() {
   return activeTab.url;
 }
 
-function getShoutKey(url) {
-  const requestURL = `http://shoutkey.com/new?url=${url}`;
+function getYellKey(url) {
+  const requestURL = `http://www.yellkey.com/api/new?url=${url}&time=5`;
   return fetch(requestURL)
-    .then(response => response.text())
-    .then(text => {
-      // Create a document fragment so we can parse out the result.
-      const frag = document.createRange().createContextualFragment(text);
-      const link = frag.querySelector('.hero-unit h1 a');
-      if (link) {
-        return link.href;
-      } else {
-        throw new Error(
-          'Could not parse ShoutKey from HTML response. Maybe the selector needs to be updated?'
-        );
+    .then(response => response.json())
+    .then(({key}) => {
+      if (key) {
+        return key;
       }
+      throw new Error('Did not receive a YellKey');
     })
     .catch(err => {
       throw new Error(
-        'Could not fetch from ShoutKey URL. Maybe the URL needs to be updated?'
+        'Could not fetch from YellKey URL. Maybe the URL needs to be updated?'
       )
     });
 }
@@ -52,9 +46,9 @@ async function main() {
   const currentURL = await getCurrentURL();
   let popupContent;
   try {
-    const key = await getShoutKey(currentURL);
+    const key = await getYellKey(currentURL);
     // Display the key in the popup.
-    popupContent = key;
+    popupContent = `http://yellkey.com/${key}`;
   } catch (err) {
     // Display the error message in the popup.
     popupContent = err.message;
