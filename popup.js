@@ -1,16 +1,3 @@
-async function getCurrentURL() {
-  const window = await browser.windows.getCurrent({
-    populate: true,
-  });
-  const {tabs} = window;
-  const activeTabs = tabs.filter(({active}) => active);
-  if (!activeTabs || activeTabs.length !== 1) {
-    throw new Error('Could not get any active tabs');
-  }
-  const [activeTab] = activeTabs;
-  return activeTab.url;
-}
-
 function getYellKey(url) {
   const requestURL = `http://www.yellkey.com/api/new?url=${url}&time=5`;
   return fetch(requestURL)
@@ -43,17 +30,20 @@ function sendToPopup(content) {
 }
 
 async function main() {
-  const currentURL = await getCurrentURL();
-  let popupContent;
-  try {
-    const key = await getYellKey(currentURL);
-    // Display the key in the popup.
-    popupContent = `http://yellkey.com/${key}`;
-  } catch (err) {
-    // Display the error message in the popup.
-    popupContent = err.message;
-  }
-  sendToPopup(popupContent);
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true,
+  }, ([tab]) => {
+    if (!tab) {
+      sendToPopup('Could not get current tab');
+    }
+    getYellKey(tab.url)
+      .then(key => {
+        const popupContent = `http://yellkey.com/${key}`;
+        sendToPopup(popupContent);
+      })
+      .catch(err => sendToPopup(err));
+  });
 }
 
 main();
