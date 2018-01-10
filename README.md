@@ -8,8 +8,10 @@ YellKey is inspired by ShoutKey, which was closed down around January 2018.
 
 ## Download
 
-| **Firefox** | (addons.mozilla.org)[https://addons.mozilla.org/en-US/firefox/addon/shoutkey/] |
-| **Chrome** | (Chrome Web Store)[https://chrome.google.com/webstore/detail/yellkey/ieommihkmkcmgfendkgijmpleeoajdhi?hl=en-US&gl=US] |
+| **Platform** | **Download** |
+|--------------|--------------|
+| Firefox | [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/shoutkey/) |
+| Chrome | [Chrome Web Store](https://chrome.google.com/webstore/detail/yellkey/ieommihkmkcmgfendkgijmpleeoajdhi?hl=en-US&gl=US) |
 
 ![Screenshot of a the extension icon in the toolbar, with a pop-up containing a shortened URL](./screenshot.png)
 
